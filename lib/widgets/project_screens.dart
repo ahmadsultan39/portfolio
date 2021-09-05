@@ -24,23 +24,24 @@ class ProjectScreens extends StatelessWidget {
             ),
           ),
           Expanded(
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              
-              itemCount: images.length,
-              itemBuilder: (ctx, i) => Container(
-                margin: const EdgeInsets.symmetric(vertical: 15,horizontal: 25),
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    width: 1,
-                    color: Theme.of(context).accentColor,
+            child: Scrollbar(
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                
+                itemCount: images.length,
+                itemBuilder: (ctx, i) => Container(
+                  margin: const EdgeInsets.symmetric(vertical: 15,horizontal: 25),
+                  // decoration: BoxDecoration(
+                  //   border: Border.all(
+                  //     width: 1,
+                  //     color: Theme.of(context).accentColor,
+                  //   ),
+                  // ),
+                  constraints: BoxConstraints(maxHeight: 410,maxWidth: 220),
+                  child: Image.asset(
+                    images[i],
+                    fit: BoxFit.contain,
                   ),
-                ),
-                height: 400,
-                width: 220,
-                child: Image.asset(
-                  images[i],
-                  fit: BoxFit.cover,
                 ),
               ),
             ),
